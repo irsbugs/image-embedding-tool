@@ -102,6 +102,17 @@ program that is being developed.
     ICON_IMAGE = 0 
 ```
 
+## Images for Experimenting
+
+Three image files, one svg and two png, have been included in order to experiment with
+using this program. the files are:
+
+* N_32px.svg
+* radio_retro_32
+* radio_retro_64 
+
+
+
 ## Screenshots
 
 On launching the program the initial screen is as follows:
