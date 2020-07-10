@@ -1,18 +1,19 @@
 # Image Embedding Tool.
  
-The program **image_embedding_tool.py** converts an image to Base 64 text which 
+The program **image_embedding_tool.py** converts an image to a Base 64 constant which 
 may then be embedded into a Python GTK program that is being developed.
 
-When the developed program is run the Base 64 text is then be reverted back to 
+When the developed program is run the Base 64 constant is then be reverted back to 
 an image and may be used as the GUI programs logo or favicon, etc. 
 
-Images of around 32 pixel x 32 pixel are ideal.
+Images of around 32 pixel x 32 pixel are suitable as they only take up about 50 lines 
+at 76 characters per line.
 
-Once you have selected the image you want to embed, this program will display
+Once you have selected the image you wish to embed, this program will display
 the constant of the image converted to base 64 in its text view widget. 
-Select All and Copy this constant into the program you are developing.
+*Select All* and *Copy* this constant into the program you are developing.
 
-The variable in the text view widget will be similar to this...
+The constant in the text view widget will be similar to this...
 ```
     B64_IMAGE = (b"""
     PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjwh
@@ -27,12 +28,12 @@ The variable in the text view widget will be similar to this...
     """)
 ```
 
-Review the code in the **image_embedding_tool.py** GTK program as it includes an
+Please review the code in the **image_embedding_tool.py** GTK program as it includes an
 embedded image.
 
 ## Additional Code
 
-As well as the base 64 variable, the following need to be added to the GTK 
+As well as the base 64 constant, *B64_IMAGE*, the following need to be added to the GTK 
 program that is being developed.
 
 1.  At the start of the program add the following imports:
@@ -43,7 +44,7 @@ program that is being developed.
 ```
 
 2.  For the image to be used as a favicon and display in the system tray, then
-    after the Gtk.Window() class has been created add the line
+    after the Gtk.Window() class has been created add the line:
 ```       
     self.image_path_file = self.get_image_temp_file_path()
 ```
@@ -85,7 +86,7 @@ program that is being developed.
         return temp_file_tuple[1]    
 ```
 
-4.  If its desired to use the image as a Logo, then during the setup of the
+4.  If its desired to use the image as a logo, then during the setup of the
     GUI include code like this:
 ```
         image = Gtk.Image.new_from_file(self.image_path_file)
@@ -123,7 +124,8 @@ Line 39 of the program is: `ICON_IMAGE = 2`. If this is changed to `ICON_IMAGE =
 this program will launch with a letter **N** as the logo and favicon.
 
 After an image file has been selected the text view widget displays the image as base64 and assigns
-it to the constant **B64_IMAGE**
+it to the constant **B64_IMAGE**. *Select All* and *Copy* the contents of the constant in the text 
+view widget into the program you are developing.
 
 <img src="https://github.com/irsbugs/image-embedding-tool/blob/master/after_selecting_image.png">
 
