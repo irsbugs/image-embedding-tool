@@ -105,8 +105,7 @@ program that is being developed.
 ## Images for Experimenting
 
 Three image files, one svg and two png, have been included in order to experiment with
-using this program. the files are:
-
+using this program. The files are:
 * N_32px.svg
 * radio_retro_32
 * radio_retro_64 
