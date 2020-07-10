@@ -9,8 +9,8 @@ an image and may be used as the GUI programs logo or favicon, etc.
 Images of around 32 pixel x 32 pixel are ideal.
 
 Once you have selected the image you want to embed, this program will display
-the variable of the image converted to base 64 in its text view widget. 
-Select All and Copy this variable into the program you are developing.
+the constant of the image converted to base 64 in its text view widget. 
+Select All and Copy this constant into the program you are developing.
 
 The variable in the text view widget will be similar to this...
 ```
@@ -18,13 +18,9 @@ The variable in the text view widget will be similar to this...
     PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjwh
     LS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoK
     PHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHht
-    bG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0
-    cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJo
 ```
 ...snip...
-```
-    ZS13aWR0aDoyLjMzMzMzMzI1IgogICAgICAgZD0ibSAxLjk5OTk5OTgsMTAyMi4zNjIyIHYgMjgg
-    aCA2LjU2MjQ5OTkgdiAtMTguNDQ4IGwgNy4zOTg4MzAzLDkuNTY1NyBjIDAsMCAwLjAxMTA4LC0w
+``` 
     LjE0OTMgMC4wMzg2OCwtOS45MjYyIGwgLTcuMTQ1ODMzLC05LjE5MTUgeiIKICAgICAgIGlkPSJw
     YXRoMjgiCiAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc29k
     aXBvZGk6bm9kZXR5cGVzPSJjY2NjY2NjYyIgLz4KICA8L2c+Cjwvc3ZnPgo=
@@ -112,3 +108,14 @@ On launching the program the initial screen is as follows:
 
 <img src="https://github.com/irsbugs/image-embedding-tool/blob/master/initial_screen.png">
 
+Note that the program contains an embedded image of a dogs face using the constant B64_IMAGE_2.
+Line 39 of the program is: `ICON_IMAGE = 2`. If this is changed to `ICON_IMAGE = 1`, then 
+this program will launch with a letter **N** as the logo and favicon.
+
+After an image file has been selected the text view widget displays the image as base64 and assigns
+it to the constant **B64_IMAGE**
+
+<img src="https://github.com/irsbugs/image-embedding-tool/blob/master/after_selecting_image.png">
+
+
+Ian Stewart 2020-07-10
