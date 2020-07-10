@@ -6,8 +6,8 @@ may then be embedded into a Python GTK program that is being developed.
 When the developed program is run the Base 64 constant is then be reverted back to 
 an image and may be used as the GUI programs logo or favicon, etc. 
 
-Images of around 32 pixel x 32 pixel are suitable as they only take up about 50 lines 
-at 76 characters per line.
+Images of around 32 pixel x 32 pixel are suitable as when converted to base 64 they 
+only take up about 50 lines at 76 characters per line.
 
 Once you have selected the image you wish to embed, this program will display
 the constant of the image converted to base 64 in its text view widget. 
