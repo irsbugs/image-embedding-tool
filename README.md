@@ -1,24 +1,54 @@
 # Image Embedding Tool.
  
-This tool converts an image to Base 64 text which may then be embedded into a 
-python GTK program.
+The program **image_embedding_tool.py** converts an image to Base 64 text which 
+may then be embedded into a Python GTK program that is being developed.
 
-When the program is run the Base 64 text is then be reverted back to an image 
-and may be used as the GUI programs logo or favicon, etc.
+When the developed program is run the Base 64 text is then be reverted back to 
+an image and may be used as the GUI programs logo or favicon, etc. 
+
+Images of around 32 pixel x 32 pixel are ideal.
+
+Once you have selected the image you want to embed, this program will display
+the variable of the image converted to base 64 in its text view widget. 
+Select All and Copy this variable into the program you are developing.
+
+The variable in the text view widget will be similar to this...
+```
+    B64_IMAGE = (b"""
+    PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjwh
+    LS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoK
+    PHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHht
+    bG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0
+    cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJo
+```
+...snip...
+```
+    ZS13aWR0aDoyLjMzMzMzMzI1IgogICAgICAgZD0ibSAxLjk5OTk5OTgsMTAyMi4zNjIyIHYgMjgg
+    aCA2LjU2MjQ5OTkgdiAtMTguNDQ4IGwgNy4zOTg4MzAzLDkuNTY1NyBjIDAsMCAwLjAxMTA4LC0w
+    LjE0OTMgMC4wMzg2OCwtOS45MjYyIGwgLTcuMTQ1ODMzLC05LjE5MTUgeiIKICAgICAgIGlkPSJw
+    YXRoMjgiCiAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc29k
+    aXBvZGk6bm9kZXR5cGVzPSJjY2NjY2NjYyIgLz4KICA8L2c+Cjwvc3ZnPgo=
+    """)
+```
+
+Review the code in the **image_embedding_tool.py** GTK program as it includes an
+embedded image.
+
+## Additional Code
 
 As well as the base 64 variable, the following need to be added to the GTK 
 program that is being developed.
 
 1.  At the start of the program add the following imports:
 ```
-* import tempfile
-* import base64
-* import os
+    import tempfile
+    import base64
+    import os
 ```
 
 2.  For the image to be used as a favicon and display in the system tray, then
-    after the Gtk.Window() class has been created add the line:
- ```       
+    after the Gtk.Window() class has been created add the line
+```       
     self.image_path_file = self.get_image_temp_file_path()
 ```
 
@@ -69,6 +99,11 @@ program that is being developed.
         vbox.pack_start(image, expand=True, fill=True, padding=0)
 
         self.add(vbox)            
+```
+
+5. At the beginning of you program add a constant like:
+```
+    ICON_IMAGE = 0
 ```
 
 
