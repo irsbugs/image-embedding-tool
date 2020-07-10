@@ -103,7 +103,12 @@ program that is being developed.
 
 5. At the beginning of you program add a constant like:
 ```
-    ICON_IMAGE = 0
+    ICON_IMAGE = 0 
 ```
 
+## Screenshots
+
+On launching the program the initial screen is as follows:
+
+<img src="https://github.com/irsbugs/image-embedding-tool/blob/master/initial_screen.png">
 
