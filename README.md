@@ -42,7 +42,19 @@ GdkPixbuf.PixbufFormat structs returned by GdkPixbuf.Pixbuf.get_formats().*
 
 This can be done by running the included python program *pixbuf_formats.py*.
 
-
+In the program *image_embedding_tool_pixbuf.py* GdkPixbuf.PixbufLoader performs the loading as follows:
+```
+def get_image_from_base64(self, B64_IMAGE):   
+    # Decode base64 data
+    image_data = base64.decodebytes(B64_IMAGE)
+   
+    # Use PixbufLoader to load the image_data to Pixbuf data.
+    loader = GdkPixbuf.PixbufLoader()        
+    loader.write(image_data)
+    loader.close()
+    pixbuf = loader.get_pixbuf()                
+    return pixbuf 
+```
 
 
 
