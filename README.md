@@ -34,11 +34,11 @@ returned by gdk_pixbuf_get_rowstride(), indicates the number of bytes between ro
 
 Not all image types can be loaded into a pixbuf. The documentation states:
 
-The list of supported mime types depends on what image loaders are installed, but typically “image/png”, 
-“image/jpeg”, “image/gif”, “image/tiff” and “image/x-xpixmap” are among the supported mime types. 
+*The list of supported mime types depends on what image loaders are installed, but typically “image/png”, 
+“image/jpeg”, “image/gif”, “image/tiff” and “image/x-xpixmap” are among the supported mime types.* 
 
-To obtain the full list of supported mime types, call GdkPixbuf.PixbufFormat.get_mime_types() on each of the 
-GdkPixbuf.PixbufFormat structs returned by GdkPixbuf.Pixbuf.get_formats(). 
+*To obtain the full list of supported mime types, call GdkPixbuf.PixbufFormat.get_mime_types() on each of the 
+GdkPixbuf.PixbufFormat structs returned by GdkPixbuf.Pixbuf.get_formats().* 
 
 This can be done by running the included python program *pixbuf_formats.py*.
 
