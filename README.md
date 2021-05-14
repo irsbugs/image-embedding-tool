@@ -1,4 +1,52 @@
-# Image Embedding Tool.
+# Image Embedded Tool
+
+## Updated on 2021-05-15
+
+The original *Image_embedding_tool.py* python program, written in July 2020, has been updated. The updated programs are:
+
+* image_embedding_tool_pixbuf.py
+* image_embedding_tool_pixbuf_headerbar.py
+* pixbuf_formats.py
+
+The original documentation is below. The changes in the new programs are:
+
+**image_embedding_tool_pixbuf.py**
+
+In the original program an image, stored in Base64 format, is decoded and written to a temporary file. 
+The program then accesses this temporary file to provide a Gtk.Image in the body of the GUI and for 
+the favicon image in the system tray. Where self.image_path_file maybe a variable like, '/tmp/icon_em0f7c2r.ico', 
+the lines of code to access and use the image were:
+
+```
+self.set_icon_from_file(self.image_path_file)
+image = Gtk.Image.new_from_file(self.image_path_file) 
+```
+
+Transitioning the image via a temporary file is not good practice so this updated program uses 
+[GdkPixbuf.PixbufLoader](https://lazka.github.io/pgi-docs/#GdkPixbuf-2.0/classes/PixbufLoader.html) 
+to convert the image into a *GdkPixbuf*. 
+Additional [reference](https://developer.gnome.org/pygtk/stable/class-gdkpixbufloader.html)
+
+A *GdkPixbuf* structure contains information that describes an image in memory. Image data in a pixbuf is stored 
+in memory in uncompressed, packed format. Rows in the image are stored top to bottom, and in each row pixels are 
+stored from left to right. There may be padding at the end of a row. The "rowstride" value of a pixbuf, as 
+returned by gdk_pixbuf_get_rowstride(), indicates the number of bytes between rows.
+
+Not all image types can be loaded into a pixbuf. The documentation states:
+
+The list of supported mime types depends on what image loaders are installed, but typically “image/png”, 
+“image/jpeg”, “image/gif”, “image/tiff” and “image/x-xpixmap” are among the supported mime types. 
+
+To obtain the full list of supported mime types, call GdkPixbuf.PixbufFormat.get_mime_types() on each of the 
+GdkPixbuf.PixbufFormat structs returned by GdkPixbuf.Pixbuf.get_formats(). 
+
+This can be done by running the included python program *pixbuf_formats.py*.
+
+
+
+
+
+# Image Embedding Tool - July 2020.
  
 The program **image_embedding_tool.py** converts an image to a Base 64 constant which 
 may then be embedded into a Python GTK program that is being developed.
