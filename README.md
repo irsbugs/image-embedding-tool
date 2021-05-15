@@ -76,7 +76,7 @@ image is added in two other places.
 
 This program has a Gtk.HeaderBar and a Gtk.AboutDialog. These widgets are both created using XML data and the 
 Gtk.Builder utility. Once these widgets have been created then the image as is added to both the headerbar and 
-the about dialog. (Note: for further information on combining the traditional method of adding widgets and
+the about dialog. (Note: For further information on combining the traditional method of adding widgets and
 adding widgets using Gtk.Builder refer to: https://github.com/irsbugs/header-bar ).
 
 This code places the image into a Gtk.Image object that has been configured into the headerbar and given the id *image_1*
