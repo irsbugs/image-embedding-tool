@@ -7,6 +7,7 @@ The original *Image_embedding_tool.py* python program, written in July 2020, has
 * image_embedding_tool_pixbuf.py
 * image_embedding_tool_pixbuf_headerbar.py
 * pixbuf_formats.py
+* info_from_pixbuf.py
 
 The original documentation is below. The changes in the new programs are:
 
@@ -42,7 +43,8 @@ GdkPixbuf.PixbufFormat structs returned by GdkPixbuf.Pixbuf.get_formats().*
 
 This can be done by running the included python program *pixbuf_formats.py*.
 
-In the program *image_embedding_tool_pixbuf.py* GdkPixbuf.PixbufLoader performs the loading as follows:
+In the program *image_embedding_tool_pixbuf.py* GdkPixbuf.PixbufLoader performs the loading using code simliar 
+to the following:
 ```
 def get_image_from_base64(self, B64_IMAGE):   
     # Decode base64 data
@@ -55,6 +57,44 @@ def get_image_from_base64(self, B64_IMAGE):
     pixbuf = loader.get_pixbuf()                
     return pixbuf 
 ```
+Once the image data is in the object named *pixbuf*, then this is used to create the favicon in the system tray
+with the code:
+```
+self.set_icon(pixbuf)
+```
+Also the image data is inserted into a grid in a frame in the main bode of the GUI. This is done with the code:
+```
+image = Gtk.Image.new_from_pixbuf(pixbuf)
+self.hbox.pack_start(image, expand=True, fill=True, padding=0)
+self.frame_1.add(self.hbox)
+```
+
+**image_embedding_tool_pixbuf_headerbar.py**
+
+This file is similar to the above in that it creates a favicon and places an image in the main GUI. However the 
+image is added in two other places.
+
+This program has a Gtk.HeaderBar and a Gtk.AboutDialog. These widgets are both created using XML data and the 
+Gtk.Builder utility. Once these widgets have been created then the image as is added to both the headerbar and 
+the about dialog.
+
+This code places the image into a Gtk.Image object that has been configured into the headerbar and given the id *image_1*
+```
+image = builder.get_object("image_1")
+image.set_from_pixbuf(pixbuf)
+```
+For adding the image to the About Dialog widget, which, in the XML file, it has the id *about_dialog*
+```
+self.about = builder.get_object("about_dialog")
+self.about.set_logo(pixbuf)
+```
+
+**pixbuf_formats.py** and **info_from_pixbuf.py**
+
+These two utility programs provide information regarding the image in the Gdk.Pixbuf. This information may be of use
+if there is an attempt to load the image using an alternative method than the GdkPixbuf.PixbufLoader. For example
+GdkPixbuf.Pixbuf.new_from_bytes() which has the following inputs: data, colorspace, has_alpha, bits_per_sample, width, 
+height, and rowstride.
 
 
 
